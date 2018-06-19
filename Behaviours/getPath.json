@@ -1,0 +1,176 @@
+{
+	"additionalNodes": [],
+	"additionalParameters": {
+		"root": {
+			"height": 170,
+			"width": 219
+		}
+	},
+	"inputs": [ {
+		"command": "Variable",
+		"name": "step"
+	}, {
+		"command": "Variable",
+		"name": "safeZone"
+	}, {
+		"command": "Variable",
+		"name": "rescueInfo"
+	} ],
+	"outputs": [ {
+		"name": "paths"
+	} ],
+	"properties": {
+		"IBqXLksEFxJof2hTinA9YXVWACe1XXPe": {
+			"height": 98,
+			"title": "store",
+			"width": 564,
+			"x": 636,
+			"y": -323
+		},
+		"KDz3H18vbGmeWWpCYgGKhVFTXOIhyRQG": {
+			"height": 60,
+			"title": "sequence",
+			"width": 143,
+			"x": 359,
+			"y": 45
+		},
+		"U7wZR0YiL7i8S6DWnritOxhppAXdrUbp": {
+			"height": 98,
+			"title": "store",
+			"width": 564,
+			"x": 636,
+			"y": -125
+		},
+		"VDBmAeiOsdyY59HBvCkeFCnuADdIN55Q": {
+			"height": 98,
+			"title": "store",
+			"width": 564,
+			"x": 637,
+			"y": -223
+		},
+		"aa9UeZzALjjieVqzzwuMDdzdTaj3H7l6": {
+			"height": 98,
+			"title": "store",
+			"width": 564,
+			"x": 633,
+			"y": 181
+		},
+		"eoLMqFvJKgNZixfm8wS96OslpYNUO316": {
+			"height": 98,
+			"title": "store",
+			"width": 1081,
+			"x": 634,
+			"y": 79
+		},
+		"jIifuqhtEidjElMMH0YCUbXc3vu03xg1": {
+			"height": 98,
+			"title": "store",
+			"width": 564,
+			"x": 635,
+			"y": -19
+		}
+	},
+	"roles": [ {
+		"categories": [ "nota_pat_task_three.Peepers" ],
+		"name": "Peepers"
+	}, {
+		"categories": [ "nota_pat_task_three.Atlases" ],
+		"name": "Atlases"
+	} ],
+	"root": {
+		"children": [ {
+			"children": [],
+			"id": "IBqXLksEFxJof2hTinA9YXVWACe1XXPe",
+			"nodeType": "luaCommand",
+			"parameters": [ {
+				"name": "var",
+				"value": "poses"
+			}, {
+				"name": "value",
+				"value": "nota_pat_task_three_plus.UnitsPositions({rescueInfo.unitToRescue})"
+			}, {
+				"name": "scriptName",
+				"value": "store"
+			} ],
+			"scriptName": "store"
+		}, {
+			"children": [],
+			"id": "VDBmAeiOsdyY59HBvCkeFCnuADdIN55Q",
+			"nodeType": "luaCommand",
+			"parameters": [ {
+				"name": "var",
+				"value": "bsPos"
+			}, {
+				"name": "value",
+				"value": "{{position = safeZone.safePosition}}"
+			}, {
+				"name": "scriptName",
+				"value": "store"
+			} ],
+			"scriptName": "store"
+		}, {
+			"children": [],
+			"id": "U7wZR0YiL7i8S6DWnritOxhppAXdrUbp",
+			"nodeType": "luaCommand",
+			"parameters": [ {
+				"name": "var",
+				"value": "nearestPoses"
+			}, {
+				"name": "value",
+				"value": "nota_pat_task_three_plus.NearestValleyPositions(poses, 50, step)"
+			}, {
+				"name": "scriptName",
+				"value": "store"
+			} ],
+			"scriptName": "store"
+		}, {
+			"children": [],
+			"id": "jIifuqhtEidjElMMH0YCUbXc3vu03xg1",
+			"nodeType": "luaCommand",
+			"parameters": [ {
+				"name": "var",
+				"value": "nearestBsPosition"
+			}, {
+				"name": "value",
+				"value": "nota_pat_task_three_plus.NearestValleyPositions(bsPos, 50, step)"
+			}, {
+				"name": "scriptName",
+				"value": "store"
+			} ],
+			"scriptName": "store"
+		}, {
+			"children": [],
+			"id": "eoLMqFvJKgNZixfm8wS96OslpYNUO316",
+			"nodeType": "luaCommand",
+			"parameters": [ {
+				"name": "var",
+				"value": "begins"
+			}, {
+				"name": "value",
+				"value": "nota_pat_task_three_plus.CreateTriplets(nearestPoses, nota_pat_task_three_plus.FillWithValue(nearestBsPosition[1][\"end\"], #nearestPoses))"
+			}, {
+				"name": "scriptName",
+				"value": "store"
+			} ],
+			"scriptName": "store"
+		}, {
+			"children": [],
+			"id": "aa9UeZzALjjieVqzzwuMDdzdTaj3H7l6",
+			"nodeType": "luaCommand",
+			"parameters": [ {
+				"name": "var",
+				"value": "paths"
+			}, {
+				"name": "value",
+				"value": "nota_pat_task_three_plus.ValleyPathFinder2(begins, 80, step)"
+			}, {
+				"name": "scriptName",
+				"value": "store"
+			} ],
+			"scriptName": "store"
+		} ],
+		"id": "KDz3H18vbGmeWWpCYgGKhVFTXOIhyRQG",
+		"nodeType": "sequence",
+		"parameters": []
+	}
+}

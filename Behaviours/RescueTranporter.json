@@ -1,0 +1,205 @@
+{
+	"additionalNodes": [],
+	"additionalParameters": {
+		"root": {
+			"height": 148,
+			"width": 219
+		}
+	},
+	"inputs": [ {
+		"command": "Variable",
+		"name": "step"
+	}, {
+		"command": "Variable",
+		"name": "safeZone"
+	}, {
+		"command": "Variable",
+		"name": "rescueInfo"
+	} ],
+	"outputs": [],
+	"properties": {
+		"4KlPgD9ruH3wqdFwLFymjoHkTdyZr0Iv": {
+			"height": 60,
+			"title": "sequence",
+			"width": 143,
+			"x": 588,
+			"y": 36
+		},
+		"4u9gkig2nJZOzOblT84RHeRz5Tam5wX8": {
+			"height": 92,
+			"title": "nota_pat_task_three_plus.Load",
+			"width": 305,
+			"x": 1134,
+			"y": 180
+		},
+		"5yWVKVMCXUXWjJatW7lijWCnPAFH5aLd": {
+			"height": 172,
+			"title": "reference",
+			"width": 318,
+			"x": 1117,
+			"y": 393
+		},
+		"K1GADxaZSviOmA2iejSIdkLW3R1mQrkK": {
+			"height": 194,
+			"title": "reference",
+			"width": 295,
+			"x": 886,
+			"y": -147
+		},
+		"KhlORwnVm4x2uBb29avmyYG64rsTKgyk": {
+			"height": 92,
+			"title": "nota_pat_task_three_plus.AlongPath",
+			"width": 480,
+			"x": 1128,
+			"y": 285
+		},
+		"YItZzpJ8BiYdwbMP7ucuf7Cm10JgPmxW": {
+			"height": 54,
+			"title": "success",
+			"width": 132,
+			"x": 580,
+			"y": -109
+		},
+		"e0RKrygvOZTfkguwC4SpfQNg28bS5smf": {
+			"height": 92,
+			"title": "nota_pat_task_three_plus.AlongPath",
+			"width": 295,
+			"x": 1130,
+			"y": 65
+		},
+		"jiYs3ZCbvOIYu3FpbTd1D6XqJ1j6IkkB": {
+			"height": 90,
+			"title": "luaCondition",
+			"width": 194,
+			"x": 303,
+			"y": 24
+		},
+		"xeRwAv7L5wQX4VH4e4tlDm5qxv8P09EO": {
+			"height": 60,
+			"title": "sequence",
+			"width": 143,
+			"x": 850,
+			"y": 95
+		}
+	},
+	"roles": [ {
+		"categories": [ "nota_pat_task_three.Peepers" ],
+		"name": "Peepers"
+	}, {
+		"categories": [ "nota_pat_task_three.Atlases" ],
+		"name": "Atlases"
+	} ],
+	"root": {
+		"children": [ {
+			"children": [],
+			"id": "YItZzpJ8BiYdwbMP7ucuf7Cm10JgPmxW",
+			"nodeType": "success",
+			"parameters": []
+		}, {
+			"children": [ {
+				"children": [],
+				"id": "K1GADxaZSviOmA2iejSIdkLW3R1mQrkK",
+				"nodeType": "reference",
+				"parameters": [ {
+					"name": "behaviourName",
+					"value": "nota_pat_task_three_plus.getPath"
+				} ],
+				"referenceInputs": [ {
+					"name": "step",
+					"value": "step"
+				}, {
+					"name": "safeZone",
+					"value": "safeZone"
+				}, {
+					"name": "rescueInfo",
+					"value": "rescueInfo"
+				} ],
+				"referenceOutputs": [ {
+					"name": "paths",
+					"value": "paths"
+				} ]
+			}, {
+				"children": [ {
+					"children": [],
+					"id": "e0RKrygvOZTfkguwC4SpfQNg28bS5smf",
+					"nodeType": "luaCommand",
+					"parameters": [ {
+						"name": "path",
+						"value": "paths[1].path"
+					}, {
+						"name": "unitId",
+						"value": "rescueInfo.transporter"
+					}, {
+						"name": "scriptName",
+						"value": "nota_pat_task_three_plus.AlongPath"
+					} ],
+					"scriptName": "nota_pat_task_three_plus.AlongPath"
+				}, {
+					"children": [],
+					"id": "4u9gkig2nJZOzOblT84RHeRz5Tam5wX8",
+					"nodeType": "luaCommand",
+					"parameters": [ {
+						"name": "unitToRescue",
+						"value": "rescueInfo.unitToRescue"
+					}, {
+						"name": "unitId",
+						"value": "rescueInfo.transporter"
+					}, {
+						"name": "scriptName",
+						"value": "nota_pat_task_three_plus.Load"
+					} ],
+					"scriptName": "nota_pat_task_three_plus.Load"
+				}, {
+					"children": [],
+					"id": "KhlORwnVm4x2uBb29avmyYG64rsTKgyk",
+					"nodeType": "luaCommand",
+					"parameters": [ {
+						"name": "path",
+						"value": "Sensors.nota_pat_task_three_plus.ReversePath(paths[1].path)"
+					}, {
+						"name": "unitId",
+						"value": "rescueInfo.transporter"
+					}, {
+						"name": "scriptName",
+						"value": "nota_pat_task_three_plus.AlongPath"
+					} ],
+					"scriptName": "nota_pat_task_three_plus.AlongPath"
+				}, {
+					"children": [],
+					"id": "5yWVKVMCXUXWjJatW7lijWCnPAFH5aLd",
+					"nodeType": "reference",
+					"parameters": [ {
+						"name": "behaviourName",
+						"value": "nota_pat_task_three_plus.safeUnload"
+					} ],
+					"referenceInputs": [ {
+						"name": "unitId",
+						"value": "rescueInfo.transporter"
+					}, {
+						"name": "safeZone",
+						"value": "safeZone"
+					}, {
+						"name": "unitToRescue",
+						"value": "rescueInfo.unitToRescue"
+					} ],
+					"referenceOutputs": []
+				} ],
+				"id": "xeRwAv7L5wQX4VH4e4tlDm5qxv8P09EO",
+				"nodeType": "sequence",
+				"parameters": []
+			} ],
+			"id": "4KlPgD9ruH3wqdFwLFymjoHkTdyZr0Iv",
+			"nodeType": "sequence",
+			"parameters": []
+		} ],
+		"id": "jiYs3ZCbvOIYu3FpbTd1D6XqJ1j6IkkB",
+		"nodeType": "luaCondition",
+		"parameters": [ {
+			"name": "expression",
+			"value": "rescueInfo == nil"
+		}, {
+			"name": "repeat",
+			"value": "false"
+		} ]
+	}
+}

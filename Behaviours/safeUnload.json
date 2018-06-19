@@ -1,0 +1,86 @@
+{
+	"additionalNodes": [],
+	"additionalParameters": {
+		"root": {
+			"height": 148,
+			"width": 241
+		}
+	},
+	"inputs": [ {
+		"command": "Variable",
+		"name": "unitId"
+	}, {
+		"command": "Variable",
+		"name": "safeZone"
+	}, {
+		"command": "Variable",
+		"name": "unitToRescue"
+	} ],
+	"outputs": [],
+	"properties": {
+		"30JGkBJbynwfOGyfsRwP4cEWR3v3Y1BS": {
+			"height": 60,
+			"title": "sequence",
+			"width": 143,
+			"x": 320,
+			"y": 26
+		},
+		"5iKF0Eoz9OXMZcPqTamZbLVlUugLaI7d": {
+			"height": 92,
+			"title": "nota_pat_task_three_plus.UnloadUnit",
+			"width": 300,
+			"x": 532,
+			"y": 105
+		},
+		"hDkdjl0VnnSpDf3SuffGT2VY555AF2lO": {
+			"height": 112,
+			"title": "nota_pat_task_three_plus.ToSafeZone",
+			"width": 309,
+			"x": 526,
+			"y": -64
+		}
+	},
+	"roles": [ {
+		"categories": [],
+		"name": "Role 0"
+	} ],
+	"root": {
+		"children": [ {
+			"children": [],
+			"id": "hDkdjl0VnnSpDf3SuffGT2VY555AF2lO",
+			"nodeType": "luaCommand",
+			"parameters": [ {
+				"name": "safePos",
+				"value": "safeZone.safePosition"
+			}, {
+				"name": "safeRadius",
+				"value": "safeZone.safeRadius"
+			}, {
+				"name": "unitId",
+				"value": "unitId"
+			}, {
+				"name": "scriptName",
+				"value": "nota_pat_task_three_plus.ToSafeZone"
+			} ],
+			"scriptName": "nota_pat_task_three_plus.ToSafeZone"
+		}, {
+			"children": [],
+			"id": "5iKF0Eoz9OXMZcPqTamZbLVlUugLaI7d",
+			"nodeType": "luaCommand",
+			"parameters": [ {
+				"name": "unitToRescue",
+				"value": "unitToRescue"
+			}, {
+				"name": "unitId",
+				"value": "unitId"
+			}, {
+				"name": "scriptName",
+				"value": "nota_pat_task_three_plus.UnloadUnit"
+			} ],
+			"scriptName": "nota_pat_task_three_plus.UnloadUnit"
+		} ],
+		"id": "30JGkBJbynwfOGyfsRwP4cEWR3v3Y1BS",
+		"nodeType": "sequence",
+		"parameters": []
+	}
+}
